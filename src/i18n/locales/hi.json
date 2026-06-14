@@ -1,0 +1,111 @@
+{
+  "app": {
+    "name": "fix",
+    "tagline": "नागरिक और निकाय, मिलकर समाधान।"
+  },
+  "nav": {
+    "home": "होम",
+    "report": "रिपोर्ट",
+    "discuss": "चर्चा",
+    "dashboard": "डैशबोर्ड",
+    "profile": "प्रोफ़ाइल",
+    "authorities": "ज़िम्मेदार कौन",
+    "adopt": "सड़क गोद लें"
+  },
+  "action": {
+    "share": "साझा करें",
+    "invite": "आमंत्रित करें",
+    "upvote": "मुझे भी प्रभावित करता है",
+    "report": "समस्या दर्ज करें",
+    "viewDetails": "विवरण देखें",
+    "submit": "जमा करें",
+    "cancel": "रद्द करें",
+    "next": "आगे",
+    "back": "पीछे",
+    "translate": "अनुवाद",
+    "useMyLocation": "मेरा स्थान उपयोग करें",
+    "showTheFix": "समाधान दिखाएँ",
+    "escalate": "अगले अधिकारी को सूचित रखें"
+  },
+  "category": {
+    "roads": "गड्ढे और सड़कें",
+    "traffic": "यातायात और सिग्नल",
+    "safety": "सड़क सुरक्षा",
+    "footpaths": "फुटपाथ",
+    "streetlights": "स्ट्रीटलाइट",
+    "waste": "कचरा और सफाई",
+    "water": "पानी और नाली",
+    "parks": "पेड़ और पार्क",
+    "other": "अन्य"
+  },
+  "status": {
+    "Reported": "दर्ज",
+    "Verified": "सत्यापित",
+    "Prioritized": "प्राथमिकता",
+    "InProgress": "प्रगति में",
+    "Resolved": "हल हो गया",
+    "Closed": "बंद"
+  },
+  "severity": {
+    "Low": "कम",
+    "Medium": "मध्यम",
+    "High": "उच्च",
+    "Critical": "गंभीर"
+  },
+  "report": {
+    "title": "समस्या दर्ज करें",
+    "intro": "बताइए क्या ठीक होना चाहिए। आपकी रिपोर्ट सभी प्रभावितों को जोड़ती है।",
+    "step": {
+      "category": "श्रेणी",
+      "details": "विवरण",
+      "photo": "फ़ोटो",
+      "location": "स्थान",
+      "countermeasure": "प्रस्तावित समाधान"
+    },
+    "field": {
+      "title": "शीर्षक",
+      "description": "विवरण",
+      "severity": "गंभीरता",
+      "photo": "वर्तमान स्थिति की फ़ोटो",
+      "countermeasure": "प्रस्तावित उपाय (वैकल्पिक)"
+    },
+    "generating": "आपकी कल्पना तैयार हो रही है…",
+    "visionReady": "ठीक होने के बाद यह जगह ऐसी दिख सकती है"
+  },
+  "place": {
+    "switch": "स्थान बदलें",
+    "ward": "वार्ड",
+    "civicBody": "नगर निकाय"
+  },
+  "language": {
+    "switch": "भाषा"
+  },
+  "common": {
+    "affected": "{{count}} प्रभावित",
+    "upvotes": "{{count}} आवाज़ें",
+    "sampleData": "नमूना डेटा",
+    "loading": "लोड हो रहा है…",
+    "empty": "अभी यहाँ कुछ नहीं",
+    "priorityScore": "प्राथमिकता अंक",
+    "beforeAfter": "पहले / बाद में",
+    "before": "अभी",
+    "after": "बाद में"
+  },
+  "page": {
+    "home": {
+      "title": "आपके पास की समस्याएँ",
+      "subtitle": "रिपोर्ट करें, जुटें और मिलकर हल करें।"
+    },
+    "discuss": { "title": "चर्चा" },
+    "dashboard": { "title": "प्राथमिकता डैशबोर्ड" },
+    "mobilize": { "title": "जुटाव" },
+    "authorities": {
+      "title": "ज़िम्मेदार कौन",
+      "subtitle": "आपके वार्ड से मुख्यमंत्री तक।"
+    },
+    "adopt": { "title": "सड़क गोद लें" },
+    "profile": { "title": "प्रोफ़ाइल" },
+    "notFound": { "title": "पृष्ठ नहीं मिला" },
+    "comingSoon": "यह भाग आगामी चरण में सक्रिय होगा।"
+  }
+}

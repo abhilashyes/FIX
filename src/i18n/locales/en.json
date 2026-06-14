@@ -1,0 +1,129 @@
+{
+  "app": {
+    "name": "fix",
+    "tagline": "Citizens and civic bodies, fixing together."
+  },
+  "nav": {
+    "home": "Home",
+    "report": "Report",
+    "discuss": "Discuss",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "authorities": "Who's Responsible",
+    "adopt": "Adopt a Street"
+  },
+  "action": {
+    "share": "Share",
+    "invite": "Invite",
+    "upvote": "Affects me too",
+    "report": "Report an issue",
+    "viewDetails": "View details",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "next": "Next",
+    "back": "Back",
+    "translate": "Translate",
+    "useMyLocation": "Use my location",
+    "showTheFix": "Show the fix",
+    "escalate": "Keep the next person informed"
+  },
+  "category": {
+    "roads": "Potholes & Roads",
+    "traffic": "Traffic & Signals",
+    "safety": "Road Safety",
+    "footpaths": "Footpaths",
+    "streetlights": "Streetlights",
+    "waste": "Waste & Sanitation",
+    "water": "Water & Drainage",
+    "parks": "Trees & Parks",
+    "other": "Other"
+  },
+  "status": {
+    "Reported": "Reported",
+    "Verified": "Verified",
+    "Prioritized": "Prioritized",
+    "InProgress": "In Progress",
+    "Resolved": "Resolved",
+    "Closed": "Closed"
+  },
+  "severity": {
+    "Low": "Low",
+    "Medium": "Medium",
+    "High": "High",
+    "Critical": "Critical"
+  },
+  "report": {
+    "title": "Report an issue",
+    "intro": "Tell us what needs fixing. Your report rallies everyone affected.",
+    "step": {
+      "category": "Category",
+      "details": "Details",
+      "photo": "Photo",
+      "location": "Location",
+      "countermeasure": "Proposed fix"
+    },
+    "field": {
+      "title": "Title",
+      "description": "Description",
+      "severity": "Severity",
+      "photo": "Current-situation photo",
+      "countermeasure": "Proposed countermeasure (optional)"
+    },
+    "generating": "Generating your vision…",
+    "visionReady": "Here's how this spot could look once fixed"
+  },
+  "place": {
+    "switch": "Switch place",
+    "ward": "ward",
+    "civicBody": "Civic body"
+  },
+  "language": {
+    "switch": "Language"
+  },
+  "common": {
+    "affected": "{{count}} affected",
+    "upvotes": "{{count}} voices",
+    "sampleData": "Sample data",
+    "loading": "Loading…",
+    "empty": "Nothing here yet",
+    "priorityScore": "Priority score",
+    "beforeAfter": "Before / After",
+    "before": "Now",
+    "after": "After"
+  },
+  "page": {
+    "home": {
+      "title": "Issues near you",
+      "subtitle": "Report, rally and resolve — together."
+    },
+    "discuss": { "title": "Discussion" },
+    "dashboard": { "title": "Prioritization dashboard" },
+    "mobilize": { "title": "Mobilization" },
+    "authorities": {
+      "title": "Who's Responsible",
+      "subtitle": "From your ward to the Chief Minister."
+    },
+    "adopt": { "title": "Adopt a Street" },
+    "profile": { "title": "Profile" },
+    "notFound": { "title": "Page not found" },
+    "comingSoon": "This section comes alive in a later milestone."
+  },
+  "letter": {
+    "request": {
+      "title": "Request for attention",
+      "body": "Respected {{officialName}}, the residents of {{locality}} request your help with \"{{issueTitle}}\". The issue has {{votes}} voices and has been open for {{ageDays}} days. We would be grateful for your support in resolving it."
+    },
+    "reminder": {
+      "title": "Gentle follow-up",
+      "body": "Respected {{officialName}}, a gentle follow-up on \"{{issueTitle}}\", which was expected by {{promisedBy}}. Thank you for your continued attention."
+    },
+    "thanks": {
+      "title": "Thank you",
+      "body": "With thanks to {{officeName}} for helping resolve \"{{issueTitle}}\". The community appreciates your partnership."
+    },
+    "escalation": {
+      "title": "Keeping the next office informed",
+      "body": "Respected {{nextOfficialName}}, we are keeping you informed about \"{{issueTitle}}\" in {{locality}}, open for {{ageDays}} days, in case your office can help move it forward."
+    }
+  }
+}
