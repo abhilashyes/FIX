@@ -16,6 +16,7 @@ import { BeforeAfterSlider } from '@/components/issue/BeforeAfterSlider';
 import { IssueMap } from '@/components/map/IssueMap';
 import { DiscussionSection } from '@/components/discussion/DiscussionSection';
 import { ResponsiblePanel } from '@/components/authority/ResponsiblePanel';
+import { AccountabilitySection } from '@/components/authority/AccountabilitySection';
 
 export function IssueDetailPage() {
   const { t } = useTranslation();
@@ -158,6 +159,9 @@ export function IssueDetailPage() {
           {t('common.sampleData')}
         </p>
       </section>
+
+      {/* Accountability: engagement log, commitments, letter generator */}
+      <AccountabilitySection issue={issue} place={place} />
 
       {/* Discussion: countermeasures + voting + threaded comments */}
       <DiscussionSection issueId={issue.id} place={place} />

@@ -85,6 +85,43 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "account": {
+    "title": "ಜವಾಬ್ದಾರಿ",
+    "engagement": "ಸಂಪರ್ಕ ದಾಖಲೆ",
+    "addEntry": "ಸಂವಹನ ದಾಖಲಿಸಿ",
+    "commitments": "ಬದ್ಧತೆಗಳು",
+    "noEngagement": "ಇನ್ನೂ ಯಾವುದೇ ಸಂವಹನ ದಾಖಲಾಗಿಲ್ಲ.",
+    "noCommitments": "ಇನ್ನೂ ಯಾವುದೇ ಬದ್ಧತೆ ದಾಖಲಾಗಿಲ್ಲ.",
+    "promisedBy": "ಗುರಿ",
+    "summary": "ಏನು ನಡೆಯಿತು",
+    "outcome": "ಫಲಿತಾಂಶ (ಐಚ್ಛಿಕ)",
+    "save": "ಉಳಿಸಿ",
+    "kind": {
+      "Meeting": "ಸಭೆ",
+      "Call": "ಕರೆ",
+      "Letter": "ಪತ್ರ",
+      "Request": "ಮನವಿ",
+      "Escalation": "ಎಸ್ಕಲೇಶನ್"
+    },
+    "status": {
+      "Completed": "ಪೂರ್ಣ",
+      "OnTrack": "ಸರಿಯಾದ ಹಾದಿಯಲ್ಲಿ",
+      "NeedsAttention": "ಗಮನ ಅಗತ್ಯ"
+    },
+    "generateLetter": "ಮನವಿ ಪತ್ರ ರಚಿಸಿ",
+    "letterTitle": "ಸೌಜನ್ಯ ಪತ್ರ",
+    "pickTemplate": "ಟೆಂಪ್ಲೇಟ್ ಆಯ್ಕೆಮಾಡಿ",
+    "copy": "ನಕಲಿಸಿ",
+    "copied": "ನಕಲಾಗಿದೆ",
+    "scoreboard": "ಹಂಚಿಕೊಂಡ ಸ್ಕೋರ್‌ಬೋರ್ಡ್",
+    "byDepartment": "ವಿಭಾಗದ ಪ್ರಕಾರ",
+    "byCommunity": "ಪ್ರದೇಶದ ಪ್ರಕಾರ",
+    "openIssues": "ತೆರೆದ",
+    "resolved": "ಪರಿಹಾರ",
+    "responsiveness": "ಸ್ಪಂದನಶೀಲತೆ",
+    "completed": "ಪೂರ್ಣ",
+    "members": "ಸದಸ್ಯರು"
+  },
   "authorities": {
     "administrative": "ಆಡಳಿತ ಸರಪಳಿ",
     "elected": "ಚುನಾಯಿತ ಪ್ರತಿನಿಧಿಗಳು",

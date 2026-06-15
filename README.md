@@ -47,7 +47,13 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 5 of 11
+## Project status — Milestone 6 of 11
+
+**M6 (accountability)** adds, on each issue: an **engagement log** (meetings, calls, letters,
+requests with dates + outcomes), a **commitment tracker** with neutral statuses (Completed /
+On track / Needs attention) and history, and a **respectful letter generator** that pre-fills
+request/follow-up/thanks/escalation templates from the issue's data. A **shared scoreboard**
+(per department and per locality, with responsiveness) appears on the Dashboard.
 
 **M5 (Who's Responsible + escalation)** adds: a browsable **hierarchy directory** for the
 place's state — both the **administrative** and **elected** chains as official profile cards

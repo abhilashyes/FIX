@@ -85,6 +85,43 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "account": {
+    "title": "Accountability",
+    "engagement": "Engagement log",
+    "addEntry": "Log an interaction",
+    "commitments": "Commitments",
+    "noEngagement": "No interactions logged yet.",
+    "noCommitments": "No commitments recorded yet.",
+    "promisedBy": "Target",
+    "summary": "What happened",
+    "outcome": "Outcome (optional)",
+    "save": "Save",
+    "kind": {
+      "Meeting": "Meeting",
+      "Call": "Call",
+      "Letter": "Letter",
+      "Request": "Request",
+      "Escalation": "Escalation"
+    },
+    "status": {
+      "Completed": "Completed",
+      "OnTrack": "On track",
+      "NeedsAttention": "Needs attention"
+    },
+    "generateLetter": "Generate a request letter",
+    "letterTitle": "Respectful letter",
+    "pickTemplate": "Choose a template",
+    "copy": "Copy",
+    "copied": "Copied",
+    "scoreboard": "Shared scoreboard",
+    "byDepartment": "By department",
+    "byCommunity": "By locality",
+    "openIssues": "Open",
+    "resolved": "Resolved",
+    "responsiveness": "Responsiveness",
+    "completed": "Completed",
+    "members": "Members"
+  },
   "authorities": {
     "administrative": "Administrative chain",
     "elected": "Elected representatives",

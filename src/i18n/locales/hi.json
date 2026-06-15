@@ -85,6 +85,43 @@
     "missingFields": "कृपया शीर्षक, फ़ोटो और स्थान जोड़ें।",
     "createCta": "रिपोर्ट जमा करें"
   },
+  "account": {
+    "title": "जवाबदेही",
+    "engagement": "संपर्क लॉग",
+    "addEntry": "बातचीत दर्ज करें",
+    "commitments": "प्रतिबद्धताएँ",
+    "noEngagement": "अभी कोई बातचीत दर्ज नहीं।",
+    "noCommitments": "अभी कोई प्रतिबद्धता दर्ज नहीं।",
+    "promisedBy": "लक्ष्य",
+    "summary": "क्या हुआ",
+    "outcome": "परिणाम (वैकल्पिक)",
+    "save": "सहेजें",
+    "kind": {
+      "Meeting": "बैठक",
+      "Call": "कॉल",
+      "Letter": "पत्र",
+      "Request": "अनुरोध",
+      "Escalation": "एस्केलेशन"
+    },
+    "status": {
+      "Completed": "पूर्ण",
+      "OnTrack": "सही राह पर",
+      "NeedsAttention": "ध्यान आवश्यक"
+    },
+    "generateLetter": "अनुरोध पत्र बनाएँ",
+    "letterTitle": "विनम्र पत्र",
+    "pickTemplate": "टेम्पलेट चुनें",
+    "copy": "कॉपी",
+    "copied": "कॉपी हुआ",
+    "scoreboard": "साझा स्कोरबोर्ड",
+    "byDepartment": "विभाग अनुसार",
+    "byCommunity": "क्षेत्र अनुसार",
+    "openIssues": "खुले",
+    "resolved": "हल",
+    "responsiveness": "प्रतिक्रियाशीलता",
+    "completed": "पूर्ण",
+    "members": "सदस्य"
+  },
   "authorities": {
     "administrative": "प्रशासनिक श्रृंखला",
     "elected": "निर्वाचित प्रतिनिधि",
