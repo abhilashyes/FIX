@@ -85,6 +85,31 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "adopt": {
+    "title": "Adopt a Street",
+    "adoptedBy": "Adopted by {{org}}",
+    "browse": "Adopted assets",
+    "noAdoptions": "No adoptions yet — be the first organization to adopt.",
+    "create": "Adopt a street",
+    "org": "Organization",
+    "targetName": "Street / junction / park",
+    "funds": "CSR funds committed",
+    "hours": "Employee volunteer hours",
+    "period": "Period",
+    "fundsDeployed": "Funds deployed",
+    "employeeHours": "Employee hours",
+    "issuesFixed": "Issues fixed",
+    "gallery": "Before / after gallery",
+    "exportReport": "Export CSR impact report",
+    "logHours": "Log volunteer hours",
+    "of": "of",
+    "targetType": {
+      "Street": "Street",
+      "Junction": "Junction",
+      "Park": "Park",
+      "Stretch": "Stretch"
+    }
+  },
   "mobilize": {
     "plan": "Mobilization plan",
     "noPlan": "No mobilization plan yet.",

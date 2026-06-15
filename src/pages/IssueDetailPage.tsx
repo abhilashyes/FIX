@@ -17,6 +17,8 @@ import { IssueMap } from '@/components/map/IssueMap';
 import { DiscussionSection } from '@/components/discussion/DiscussionSection';
 import { ResponsiblePanel } from '@/components/authority/ResponsiblePanel';
 import { AccountabilitySection } from '@/components/authority/AccountabilitySection';
+import { AdoptedBadge } from '@/components/adoption/AdoptedBadge';
+import type { Adoption } from '@/types';
 
 export function IssueDetailPage() {
   const { t } = useTranslation();
@@ -24,6 +26,7 @@ export function IssueDetailPage() {
   const place = usePlaceStore((s) => s.activePlace)();
   const [issue, setIssue] = useState<Issue | null>(null);
   const [reporter, setReporter] = useState<User | null>(null);
+  const [adoption, setAdoption] = useState<{ adoption: Adoption; orgName: string } | null>(null);
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
@@ -36,7 +39,13 @@ export function IssueDetailPage() {
       .then((i) => {
         if (!active) return;
         setIssue(i);
+        setAdoption(null);
         void api.getUser(i.reporterId).then((u) => active && setReporter(u));
+        if (i.adoptionId) {
+          void Promise.all([api.getAdoption(i.adoptionId), api.getOrganizations(i.placeId)]).then(
+            ([a, orgs]) => active && setAdoption({ adoption: a, orgName: orgs.find((o) => o.id === a.orgId)?.name ?? '' }),
+          );
+        }
       })
       .catch(() => active && setMissing(true));
     return () => {
@@ -71,6 +80,11 @@ export function IssueDetailPage() {
             {t(categoryKey)} · {locality}
           </span>
         </div>
+        {adoption && (
+          <div className="mt-2">
+            <AdoptedBadge adoption={adoption.adoption} orgName={adoption.orgName} placeId={place.id} />
+          </div>
+        )}
       </header>
 
       {/* Show the fix — before/after vision */}

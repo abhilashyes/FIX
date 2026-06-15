@@ -1,6 +1,7 @@
 import type {
   Adoption,
   AdoptionId,
+  ISODateString,
   Attendee,
   Authority,
   AuthorityId,
@@ -145,6 +146,16 @@ export interface UpsertCommitmentInput {
   promisedBy?: string;
   note?: string;
 }
+export interface CreateAdoptionInput {
+  orgId: OrgId;
+  placeId: PlaceId;
+  targetType: Adoption['targetType'];
+  targetName: string;
+  localityIds: LocalityId[];
+  commitment: Adoption['commitment'];
+  periodStart: ISODateString;
+  periodEnd: ISODateString;
+}
 
 export interface FixApi {
   // Places & config
@@ -193,6 +204,7 @@ export interface FixApi {
   // Adoption / CSR
   listAdoptions(placeId: PlaceId): Promise<Adoption[]>;
   getAdoption(id: AdoptionId): Promise<Adoption>;
+  createAdoption(input: CreateAdoptionInput): Promise<Adoption>;
   logEmployeeVolunteering(input: EmployeeVolunteering): Promise<Adoption>;
 
   // Dashboard
@@ -490,6 +502,30 @@ const mock: FixApi = {
   listAdoptions: (placeId) =>
     withLatency(clone([...db.adoptions.values()].filter((a) => a.placeId === placeId))),
   getAdoption: (id) => withLatency(clone(must(db.adoptions.get(id), `adoption ${id}`))),
+  createAdoption: (input) => {
+    const id = genId<AdoptionId>('adopt');
+    const adoption: Adoption = {
+      id,
+      orgId: input.orgId,
+      placeId: input.placeId,
+      targetType: input.targetType,
+      targetName: input.targetName,
+      area: [],
+      localityIds: input.localityIds,
+      commitment: input.commitment,
+      periodStart: input.periodStart,
+      periodEnd: input.periodEnd,
+      impact: {
+        issuesFixedIds: [],
+        fundsDeployed: { amount: 0, currency: input.commitment.csrFunds.currency },
+        employeeHoursLogged: 0,
+        beforeAfterPairs: [],
+      },
+      createdAt: nowISO(),
+    };
+    db.adoptions.set(id, adoption);
+    return withLatency(clone(adoption));
+  },
   logEmployeeVolunteering: (input) => {
     const adoption = must(
       input.adoptionId ? db.adoptions.get(input.adoptionId) : undefined,

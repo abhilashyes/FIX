@@ -47,7 +47,16 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 7 of 11
+## Project status — Milestone 9 of 11
+
+**M9 (Adopt a Street / CSR)** adds: organization accounts adopting a street/junction/park/
+stretch, a browse + create flow, an **adoption dashboard** (funds deployed vs committed,
+employee hours, issues fixed, before/after gallery), a **CSR impact report** export (mock CSV),
+employee-hours logging, and a tasteful **"Adopted by …" badge** on issues in an adopted area.
+
+**M8 (mobilization)** adds: on an issue, a **mobilization plan** with a needs list
+(volunteers / materials / funds / tools) and progress bars, **pledges** (time / money /
+resources), and **fix-it day** events with a meeting-point map and RSVP.
 
 **M7 (prioritization dashboard)** builds out the Dashboard with **recharts**: a transparent
 **Top priorities** list (per-component score breakdown + visible formula), a **status funnel**,
