@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { usePlaceStore } from '@/store/usePlaceStore';
@@ -19,6 +19,16 @@ export function TopBar() {
           <span className="hidden text-xs text-ink-muted sm:inline">{t('app.tagline')}</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
+          <NavLink
+            to={`/${placeId}/pitch`}
+            className={({ isActive }) =>
+              `min-h-touch rounded-xl px-3 py-1.5 text-sm font-medium md:hidden ${
+                isActive ? 'bg-brand-tint text-brand' : 'text-ink hover:bg-brand-tint'
+              }`
+            }
+          >
+            {t('nav.pitch')}
+          </NavLink>
           <PlaceSwitcher />
           <LanguageSwitcher />
           <div className="hidden sm:block">

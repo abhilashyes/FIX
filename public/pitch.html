@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fix. — Citizens and civic bodies, fixing together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D7263D; --red-deep:#A41126;
+    --ink:#1C1B1A; --muted:#6A6F78; --tint:#FDF0F0; --line:#EAE7E4; --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.5}
+  .display{font-family:'Baloo 2','Inter',sans-serif;font-weight:800;letter-spacing:-.01em;line-height:1.1}
+
+  /* progress + sticky header */
+  #progress{position:fixed;top:0;left:0;height:4px;background:var(--red);width:0;z-index:60}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:.55rem clamp(1.2rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between}
+  header .tag{font-size:.74rem;color:var(--muted)}
+
+  /* wordmark: i is a person with raised arms */
+  .wm-svg{display:block}
+  header .wm-svg{height:1.5rem;width:auto}
+  .hero .wm-svg{height:clamp(5rem,16vw,9.5rem);width:auto}
+
+  section{padding:clamp(2.8rem,7vh,5.5rem) clamp(1.2rem,4.5vw,3rem)}
+  .wrap{max-width:1020px;margin:0 auto}
+  section + section .wrap{border-top:0}
+  section:nth-of-type(n+2){border-top:1px solid var(--line)}
+  section.red{background:var(--red);color:#fff;border-top:none}
+
+  .eyebrow{font-family:'Baloo 2';font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem}
+  .eyebrow::after{content:'';display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--red);margin-left:.5em}
+  .red .eyebrow{color:rgba(255,255,255,.78)} .red .eyebrow::after{background:#fff}
+  h1{font-size:clamp(1.5rem,4vw,2.45rem);margin-bottom:clamp(1.1rem,3vh,1.8rem)}
+
+  .hero{padding-top:clamp(3.5rem,12vh,7rem);padding-bottom:clamp(3rem,10vh,6rem)}
+  .tagline{font-family:'Baloo 2';font-weight:700;font-size:clamp(1.2rem,2.8vw,1.85rem);margin-top:1.3rem}
+  .subline{color:var(--muted);margin-top:.7rem;font-size:clamp(.94rem,1.5vw,1.1rem);max-width:62ch;line-height:1.6}
+
+  /* cards & grids */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,1.6vw,1.2rem)}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(.8rem,1.6vw,1.2rem)}
+  .card{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:clamp(1rem,2.2vw,1.6rem)}
+  .card.tint{background:var(--tint);border-color:transparent}
+  .card h3{font-family:'Baloo 2';font-weight:800;font-size:clamp(1.02rem,1.8vw,1.28rem);margin:.6rem 0 .4rem}
+  .card p{color:var(--muted);font-size:clamp(.85rem,1.35vw,.95rem);line-height:1.55}
+  .glyph{width:2.5rem;height:2.5rem;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center}
+  .glyph svg{width:1.3rem;height:1.3rem}
+  .card.redcard{background:var(--red);border-color:var(--red);color:#fff}
+  .card.redcard p{color:rgba(255,255,255,.86)}
+  .card.redcard h3{color:#fff}
+  .card .pathtag{font-family:'Baloo 2';font-weight:700;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  .redcard .pathtag{color:rgba(255,255,255,.8)}
+  .card ul{list-style:none;margin-top:.6rem}
+  .card li{padding:.45rem 0;font-size:clamp(.85rem,1.35vw,.94rem);line-height:1.5;border-bottom:1px solid var(--line);color:var(--ink)}
+  .card.redcard li{border-bottom-color:rgba(255,255,255,.25);color:#fff}
+  .card li:last-child{border-bottom:none}
+
+  /* icon rows */
+  .row{display:flex;gap:1.1rem;align-items:flex-start;padding:clamp(.7rem,1.6vh,1rem) 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row h3{font-family:'Baloo 2';font-weight:800;font-size:clamp(1rem,1.8vw,1.22rem);margin-bottom:.2rem}
+  .row p{color:var(--muted);font-size:clamp(.86rem,1.4vw,.96rem);line-height:1.55;max-width:66ch}
+
+  /* lifecycle */
+  .flow{display:flex;gap:.5rem;align-items:stretch;margin-bottom:clamp(1.2rem,3vh,1.8rem)}
+  .step{flex:1;text-align:center;position:relative;padding-top:.2rem}
+  .step .dot{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--red);color:#fff;font-family:'Baloo 2';font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto .7rem;font-size:1.05rem}
+  .step:last-child .dot{background:var(--ink)}
+  .step::after{content:'';position:absolute;top:1.25rem;left:calc(50% + 1.45rem);width:calc(100% - 2.9rem);height:2px;background:var(--line)}
+  .step:last-child::after{display:none}
+  .step h4{font-family:'Baloo 2';font-weight:800;font-size:clamp(.86rem,1.5vw,1.02rem);margin-bottom:.25rem}
+  .step p{color:var(--muted);font-size:clamp(.72rem,1.1vw,.83rem);line-height:1.45;padding:0 .2rem}
+  .callout{background:var(--tint);border-radius:14px;padding:1rem 1.3rem;font-size:clamp(.9rem,1.4vw,1rem);line-height:1.55}
+  .callout b{color:var(--red)}
+  .red .callout{background:rgba(255,255,255,.12)}
+
+  /* chart */
+  .evidence{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.4rem,3vw,2.6rem);align-items:center}
+  .bars{display:flex;flex-direction:column;gap:.7rem}
+  .bar{display:grid;grid-template-columns:7.2rem 1fr 2.2rem;align-items:center;gap:.7rem;font-size:.82rem}
+  .bar .label{color:var(--muted);text-align:right}
+  .bar .track{background:var(--tint);border-radius:99px;height:1.05rem;overflow:hidden}
+  .bar .vfill{display:block;height:100%;background:var(--red);border-radius:99px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+  .bar .num{font-family:'Baloo 2';font-weight:800}
+  .chartcap{font-size:.75rem;color:var(--muted);margin-top:.8rem;font-style:italic}
+  .checks{list-style:none}
+  .checks li{padding:.6rem 0 .6rem 1.9rem;position:relative;font-size:clamp(.86rem,1.35vw,.96rem);line-height:1.5;border-bottom:1px solid var(--line)}
+  .checks li:last-child{border-bottom:none}
+  .checks li::before{content:'';position:absolute;left:0;top:.95rem;width:.95rem;height:.95rem;border-radius:50%;background:var(--red)}
+  .checks li::after{content:'';position:absolute;left:.26em;top:1.22rem;width:.42rem;height:.22rem;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg)}
+
+  .phase .mo{font-family:'Baloo 2';font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+
+  /* before/after vision */
+  .lead-p{font-size:clamp(1rem,1.7vw,1.2rem);line-height:1.6;color:var(--ink);max-width:48ch;margin-bottom:1rem}
+  .ba{display:flex;align-items:center;gap:.8rem}
+  .ba-card{flex:1;position:relative;border-radius:14px;overflow:hidden;border:1.5px solid var(--line)}
+  .ba-tag{position:absolute;top:.5rem;left:.5rem;z-index:2;font-family:'Baloo 2';font-weight:700;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:99px;color:#fff}
+  .ba-tag.now{background:#6A6F78}
+  .ba-tag.after{background:var(--red)}
+  .ba-img{aspect-ratio:4/3;width:100%}
+  .ba-img.before{background:repeating-linear-gradient(135deg,#cfc9c4 0 14px,#bdb6b0 14px 28px)}
+  .ba-img.after{background:linear-gradient(160deg,#dff0e6,#bfe3cf 60%,#9fd3b8)}
+  .ba-arrow{font-family:'Baloo 2';font-weight:800;color:var(--red);font-size:1.4rem}
+
+  /* hierarchy ladder */
+  .ladder{list-style:none;margin-top:.6rem;counter-reset:step}
+  .ladder li{position:relative;padding:.55rem 0 .55rem 2rem;font-size:clamp(.86rem,1.4vw,.97rem);border-bottom:1px solid var(--line)}
+  .ladder li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:50%;transform:translateY(-50%);width:1.4rem;height:1.4rem;border-radius:50%;background:var(--red);color:#fff;font-family:'Baloo 2';font-weight:700;font-size:.72rem;display:flex;align-items:center;justify-content:center}
+  .ladder li:last-child{border-bottom:none;font-weight:600}
+  .card.redcard .ladder li{border-bottom-color:rgba(255,255,255,.25);color:#fff}
+  .card.redcard .ladder li::before{background:#fff;color:var(--red)}
+  .redcard .mo{color:rgba(255,255,255,.8)}
+  .footnote{margin-top:clamp(1rem,2.5vh,1.5rem);font-style:italic;color:var(--muted);font-size:clamp(.86rem,1.35vw,.97rem)}
+
+  /* ask */
+  .ask{display:flex;flex-direction:column;gap:clamp(1rem,2.4vh,1.5rem);margin-top:.4rem}
+  .ask .item{display:flex;gap:1rem;align-items:flex-start}
+  .ask .n{font-family:'Baloo 2';font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1;color:rgba(255,255,255,.55);min-width:2.4rem}
+  .ask h3{font-family:'Baloo 2';font-weight:800;font-size:clamp(1.05rem,2.1vw,1.4rem);margin-bottom:.2rem}
+  .ask p{color:rgba(255,255,255,.86);font-size:clamp(.86rem,1.4vw,.98rem);line-height:1.55;max-width:66ch}
+  .contact{margin-top:clamp(1.5rem,4vh,2.2rem);padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.3);font-size:.93rem;color:rgba(255,255,255,.9)}
+  .contact b{font-family:'Baloo 2';font-weight:800}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:760px){
+    .grid3,.grid2,.evidence{grid-template-columns:1fr}
+    .flow{flex-direction:column;gap:1rem}
+    .step{display:grid;grid-template-columns:2.5rem 1fr;gap:.9rem;text-align:left}
+    .step .dot{margin:0}
+    .step::after{display:none}
+    .bar{grid-template-columns:5.6rem 1fr 2rem;font-size:.76rem}
+    header .tag{display:none}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .bar .vfill{transition:none}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header>
+  <svg class="wm-svg" viewBox="0 0 240 150" aria-label="fix">
+    <text x="0" y="116" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="135" fill="#1C1B1A">f</text>
+    <circle cx="92" cy="40" r="14" fill="#D7263D"/><rect x="84" y="58" width="16" height="58" rx="8" fill="#D7263D"/><line x1="92" y1="68" x2="76" y2="52" stroke="#D7263D" stroke-width="10" stroke-linecap="round"/><line x1="92" y1="68" x2="108" y2="52" stroke="#D7263D" stroke-width="10" stroke-linecap="round"/>
+    <g stroke-width="19" stroke-linecap="round"><line x1="134" y1="64" x2="190" y2="116" stroke="#D7263D"/><line x1="190" y1="64" x2="134" y2="116" stroke="#1C1B1A"/></g>
+    <circle cx="214" cy="108" r="11" fill="#D7263D"/>
+  </svg>
+  <div class="tag">Citizens and civic bodies, fixing together</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal">For cities, towns &amp; villages — June 2026</div>
+    <div class="reveal">
+      <svg class="wm-svg" viewBox="0 0 240 150" aria-label="fix">
+        <text x="0" y="116" font-family="'Baloo 2',sans-serif" font-weight="800" font-size="135" fill="#1C1B1A">f</text>
+        <circle cx="92" cy="40" r="14" fill="#D7263D"/><rect x="84" y="58" width="16" height="58" rx="8" fill="#D7263D"/><line x1="92" y1="68" x2="76" y2="52" stroke="#D7263D" stroke-width="10" stroke-linecap="round"/><line x1="92" y1="68" x2="108" y2="52" stroke="#D7263D" stroke-width="10" stroke-linecap="round"/>
+        <g stroke-width="19" stroke-linecap="round"><line x1="134" y1="64" x2="190" y2="116" stroke="#D7263D"/><line x1="190" y1="64" x2="134" y2="116" stroke="#1C1B1A"/></g>
+        <circle cx="214" cy="108" r="11" fill="#D7263D"/>
+      </svg>
+    </div>
+    <div class="tagline reveal">Citizens and civic bodies, fixing together.</div>
+    <p class="subline reveal">A shared platform to report civic issues, bring together everyone affected, and resolve them — through community action, civic partnership, or both.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The challenge</div>
+    <h1 class="display reveal">Civic needs are growing faster than civic capacity</h1>
+    <div class="grid3">
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Scattered information</h3>
+        <p>Reports arrive through helplines, apps, social media and local offices — no single, shared picture of what needs attention where.</p>
+      </div>
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg></div>
+        <h3>Unclear ownership</h3>
+        <p>It's often unclear which department or office handles a given issue, so requests move between desks and lose momentum.</p>
+      </div>
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Untapped goodwill</h3>
+        <p>Residents who report rarely hear back — while local knowledge, volunteer hours and willing partners go unused.</p>
+      </div>
+    </div>
+    <p class="footnote reveal">Small problems become expensive ones — and residents and civic teams alike are stretched thinner.</p>
+  </div>
+</section>
+
+<!-- IDEA -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The idea</div>
+    <h1 class="display reveal">Every issue has a community. fix brings it together.</h1>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><h3>Gather the affected</h3><p>One report becomes a shared effort: everyone who lives with the broken road, dark street or flooded junction finds each other on the issue page.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div><h3>Decide together</h3><p>The community discusses countermeasures, votes on what would work best, and agrees what to prioritize — guided by local knowledge.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <div><h3>Act, together</h3><p>The community contributes directly, works with the office responsible, or both — with clear, shared visibility for everyone involved.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO PATHS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">How issues get resolved</div>
+    <h1 class="display reveal">Two paths to fixed</h1>
+    <div class="grid2">
+      <div class="card tint reveal">
+        <span class="pathtag">Path one</span>
+        <h3>Community action</h3>
+        <ul>
+          <li>Volunteer drives with skill-tagged sign-ups</li>
+          <li>Funds and materials pledged against a published list of needs</li>
+          <li>Fix-it days with map meeting points and attendance</li>
+          <li>Before/after photos document every completed effort</li>
+        </ul>
+      </div>
+      <div class="card redcard reveal">
+        <span class="pathtag">Path two</span>
+        <h3>Civic partnership</h3>
+        <ul>
+          <li>Each issue is routed to the department and role that handles it</li>
+          <li>Meetings, requests and updates — kept in one shared record</li>
+          <li>Commitments with timelines: completed, on track, or needs attention</li>
+          <li>Community and authority work side by side until it's done</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote reveal">Most issues take both: the community starts, the civic body finishes — or the other way around.</p>
+  </div>
+</section>
+
+<!-- SHOW THE FIX (AI vision) -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Idea to action</div>
+    <h1 class="display reveal">See the fix before it happens</h1>
+    <div class="evidence">
+      <div class="reveal">
+        <div class="ba">
+          <div class="ba-card">
+            <span class="ba-tag now">Now</span>
+            <div class="ba-img before"></div>
+          </div>
+          <div class="ba-arrow">&rarr;</div>
+          <div class="ba-card">
+            <span class="ba-tag after">After</span>
+            <div class="ba-img after"></div>
+          </div>
+        </div>
+        <p class="chartcap">Illustrative: a current photo and an AI-generated vision of the resolved spot</p>
+      </div>
+      <div class="reveal">
+        <p class="lead-p">A resident captures the problem as it is today. fix pairs that photo with the community's chosen countermeasure and generates a realistic picture of how the spot will look once fixed.</p>
+        <ul class="checks">
+          <li>Turns a complaint into a shared, hopeful vision everyone can rally behind</li>
+          <li>Gives officials and adopters a concrete outcome to approve and fund</li>
+          <li>Before/after pairs document the journey from idea to delivered result</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The platform</div>
+    <h1 class="display reveal">One platform, four pillars</h1>
+    <div class="grid2">
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Report</h3>
+        <p>Geo-tagged issues with photos, category and severity — potholes, signals, footpaths, streetlights, drainage.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Deliberate</h3>
+        <p>Open discussion and proposed countermeasures, voted on with reasons by the residents affected.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Prioritize</h3>
+        <p>A transparent priority score — votes, severity, age, people affected — and a live locality dashboard.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Mobilize</h3>
+        <p>Volunteers, pledges, adopted streets and coordination with civic offices — turning agreed priorities into action.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">How it works</div>
+    <h1 class="display reveal">An issue's journey: report to resolution</h1>
+    <div class="flow reveal">
+      <div class="step"><div class="dot">1</div><div><h4>Reported</h4><p>Resident posts photo, pin and severity</p></div></div>
+      <div class="step"><div class="dot">2</div><div><h4>Verified</h4><p>Neighbours confirm: "affects me too"</p></div></div>
+      <div class="step"><div class="dot">3</div><div><h4>Prioritized</h4><p>Score rises; countermeasure chosen by vote</p></div></div>
+      <div class="step"><div class="dot">4</div><div><h4>In progress</h4><p>Community action, civic partnership, or both</p></div></div>
+      <div class="step"><div class="dot">5</div><div><h4>Resolved</h4><p>Before/after photos close the loop publicly</p></div></div>
+    </div>
+    <div class="callout reveal"><b>Every step is visible.</b> Who reported, who verified, who committed, who delivered — a shared record that keeps everyone informed and engaged.</div>
+  </div>
+</section>
+
+<!-- ACCOUNTABILITY -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The backbone</div>
+    <h1 class="display reveal">Shared accountability, three ways</h1>
+    <div class="grid3">
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Civic bodies</h3>
+        <p>Commitments and timelines are visible on each issue — and completed work earns public recognition, issue by issue.</p>
+      </div>
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></div>
+        <h3>Citizens</h3>
+        <p>Reports are verified by neighbours, votes are on record, and reputation grows with verified reports and kept pledges.</p>
+      </div>
+      <div class="card tint reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Communities</h3>
+        <p>Mobilization plans, pledges and fix-it events are tracked to completion — follow-through is visible, not just intent.</p>
+      </div>
+    </div>
+    <p class="footnote reveal">A shared scoreboard built on partnership and transparency — everyone's contribution counts, and everyone's contribution shows.</p>
+  </div>
+</section>
+
+<!-- WHO'S RESPONSIBLE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Know who can help</div>
+    <h1 class="display reveal">From your ward to the Chief Minister</h1>
+    <p class="lead-p reveal" style="margin-bottom:1.4rem">Every issue is matched to the people responsible for that location — across both the administrative chain and the elected representatives — so the community always knows who to approach next.</p>
+    <div class="grid2">
+      <div class="card tint reveal">
+        <span class="pathtag">Administrative chain</span>
+        <ul class="ladder">
+          <li>Ward Engineer</li>
+          <li>Executive Engineer</li>
+          <li>Zonal Commissioner</li>
+          <li>Municipal Commissioner</li>
+          <li>State Department &rarr; Chief Minister</li>
+        </ul>
+      </div>
+      <div class="card redcard reveal">
+        <span class="pathtag">Elected representatives</span>
+        <ul class="ladder">
+          <li>Corporator / Ward Member</li>
+          <li>MLA — constituency</li>
+          <li>MP — Lok Sabha constituency</li>
+          <li>State Minister</li>
+          <li>Chief Minister</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote reveal">Hierarchies adapt to each state and to rural three-tier panchayati raj. A respectful escalation ladder keeps the right people informed when issues stay open.</p>
+  </div>
+</section>
+
+<!-- ADOPT A STREET -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Corporates &amp; institutions</div>
+    <h1 class="display reveal">Adopt a street</h1>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s8-4.5 8-11a8 8 0 0 0-16 0c0 6.5 8 11 8 11z"/><path d="M9 11l2 2 4-4"/></svg></div>
+      <div><h3>A street, junction or park — adopted</h3><p>Companies, institutions and associations commit CSR funds, materials and employee volunteer hours to a defined stretch for a defined period.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div><h3>CSR that's visible and verifiable</h3><p>Every contribution — funds, hours, repairs — is logged against real issues with before/after evidence, and exported as a compliance-ready impact report.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div><h3>Employees on the ground</h3><p>Team volunteering days plug straight into community fix-it events — corporates work alongside residents and civic staff.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
+      <div><h3>Recognition the whole neighbourhood sees</h3><p>Adopted streets carry a tasteful "Adopted by" badge on the map and on the ground — lasting civic goodwill for the adopter.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">For decision-makers</div>
+    <h1 class="display reveal">A live evidence base for local government</h1>
+    <div class="evidence">
+      <div class="reveal">
+        <div class="bars" id="bars">
+          <div class="bar"><span class="label">Roads &amp; potholes</span><span class="track"><span class="vfill" data-w="100"></span></span><span class="num">142</span></div>
+          <div class="bar"><span class="label">Traffic &amp; signals</span><span class="track"><span class="vfill" data-w="68"></span></span><span class="num">96</span></div>
+          <div class="bar"><span class="label">Streetlights</span><span class="track"><span class="vfill" data-w="55"></span></span><span class="num">78</span></div>
+          <div class="bar"><span class="label">Waste</span><span class="track"><span class="vfill" data-w="45"></span></span><span class="num">64</span></div>
+          <div class="bar"><span class="label">Water &amp; drainage</span><span class="track"><span class="vfill" data-w="40"></span></span><span class="num">57</span></div>
+          <div class="bar"><span class="label">Footpaths</span><span class="track"><span class="vfill" data-w="29"></span></span><span class="num">41</span></div>
+        </div>
+        <p class="chartcap">Open issues by category — illustrative pilot view</p>
+      </div>
+      <ul class="checks reveal">
+        <li>Transparent priority score — votes + severity + age + people affected, visible to all</li>
+        <li>Locality heatmaps surface clusters early, supporting planning and budgeting</li>
+        <li>Aging views and exportable summaries for ward committees and gram sabhas</li>
+        <li>Resolution funnel and commitment tracker, month over month</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PILOT -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">The proposal</div>
+    <h1 class="display reveal">Pilot: three localities, six months</h1>
+    <div class="grid3">
+      <div class="card tint phase reveal">
+        <span class="mo">Months 1–2</span>
+        <h3>Launch</h3>
+        <p>Deploy in 3 pilot localities of a willing city, town or panchayat. Onboard community groups, NGOs, a corporate adopter and local officials. Seed and verify the first issues.</p>
+      </div>
+      <div class="card tint phase reveal">
+        <span class="mo">Months 3–4</span>
+        <h3>Resolve</h3>
+        <p>Run weekly prioritization with local committees. Deliver the first community fix-it days, an adopted-street program, and civic-led repairs from the shared queue.</p>
+      </div>
+      <div class="card redcard phase reveal">
+        <span class="mo">Months 5–6</span>
+        <h3>Evaluate</h3>
+        <p>Measure resolution rate, time-to-fix, commitments met, participation and satisfaction against baseline. Publish results and decide on scale-up.</p>
+      </div>
+    </div>
+    <p class="footnote reveal">Success criteria agreed upfront — pilot costs borne by the project and CSR partners, not the civic body.</p>
+  </div>
+</section>
+
+<!-- SCALE -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">Beyond the pilot</div>
+    <h1 class="display reveal">Built for every scale of settlement</h1>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="1"/><line x1="9" y1="6" x2="9.01" y2="6"/><line x1="15" y1="6" x2="15.01" y2="6"/><line x1="9" y1="10" x2="9.01" y2="10"/><line x1="15" y1="10" x2="15.01" y2="10"/><line x1="9" y1="14" x2="9.01" y2="14"/><line x1="15" y1="14" x2="15.01" y2="14"/><path d="M10 22v-4h4v4"/></svg></div>
+      <div><h3>Place as configuration</h3><p>Metro wards, town municipalities or village panchayats — localities, categories, language, currency and department mapping are all settings, not code.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+      <div><h3>Multilingual by design</h3><p>The same platform speaks the local language of every deployment — built for India's languages first, ready for any country's.</p></div>
+    </div>
+    <div class="row reveal">
+      <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+      <div><h3>Open civic data</h3><p>Aggregated, anonymized issue data can support planning, budgeting and research — an asset that grows with every place that joins.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal">What's next</div>
+    <h1 class="display reveal">The road ahead</h1>
+    <div class="grid2">
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Native mobile app</h3>
+        <p>iOS and Android apps as the main field client — fast reporting, offline tolerance, and push updates when an issue moves or an official responds.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg></div>
+        <h3>Many Indian languages</h3>
+        <p>Hindi, Kannada, Tamil, Telugu and more from the start — with voice input so low-literacy residents can report just by speaking.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/></svg></div>
+        <h3>Real "Show the fix" AI</h3>
+        <p>On-device-quality AI vision that turns any photo and chosen solution into a realistic preview of the resolved spot.</p>
+      </div>
+      <div class="card reveal">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Verified official directory</h3>
+        <p>The full civic and elected hierarchy, synced from government sources and kept current as office-holders change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASK -->
+<section class="red">
+  <div class="wrap">
+    <div class="eyebrow reveal">Next steps</div>
+    <h1 class="display reveal">What we ask of civic leadership</h1>
+    <div class="ask">
+      <div class="item reveal"><div class="n">1</div><div><h3>Endorse a 6-month pilot in three localities</h3><p>A letter of support and a named liaison for each pilot locality — city ward, town or panchayat.</p></div></div>
+      <div class="item reveal"><div class="n">2</div><div><h3>Connect the queue to action</h3><p>A working channel so community-prioritized issues reach the right departments — and updates flow back to residents.</p></div></div>
+      <div class="item reveal"><div class="n">3</div><div><h3>Co-define success</h3><p>Agree the metrics now: resolution rate, time-to-fix, commitments met, citizen participation and satisfaction.</p></div></div>
+    </div>
+    <div class="contact reveal"><b>fix.</b> &nbsp;|&nbsp; hello@fix.city &nbsp;|&nbsp; Working demo available</div>
+  </div>
+</section>
+
+<script>
+  // scroll progress
+  const progress=document.getElementById('progress');
+  function onScroll(){
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    progress.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // reveal on view
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        if(e.target.querySelector&&e.target.querySelector('.vfill')) animateBars();
+        if(e.target.classList.contains('vfill')||e.target.id==='bars') animateBars();
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  let barsDone=false;
+  function animateBars(){
+    if(barsDone)return; barsDone=true;
+    document.querySelectorAll('.vfill').forEach(b=>{
+      requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.width=b.dataset.w+'%';}));
+    });
+  }
+</script>
+</body>
+</html>

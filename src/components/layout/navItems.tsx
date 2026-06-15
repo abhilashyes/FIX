@@ -68,6 +68,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
     icon: <Icon><path d="M12 21s8-4.5 8-11a8 8 0 0 0-16 0c0 6.5 8 11 8 11z" /><path d="M9 11l2 2 4-4" /></Icon>,
   },
   {
+    key: 'pitch',
+    path: 'pitch',
+    labelKey: 'nav.pitch',
+    bottom: false,
+    icon: <Icon><rect x="3" y="4" width="18" height="12" rx="1" /><path d="M8 20h8M12 16v4" /></Icon>,
+  },
+  {
     key: 'profile',
     path: 'profile',
     labelKey: 'nav.profile',

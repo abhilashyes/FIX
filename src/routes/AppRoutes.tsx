@@ -10,6 +10,7 @@ import { MobilizationPage } from '@/pages/MobilizationPage';
 import { AuthorityDirectoryPage } from '@/pages/AuthorityDirectoryPage';
 import { AdoptStreetPage } from '@/pages/AdoptStreetPage';
 import { AdoptionDashboardPage } from '@/pages/AdoptionDashboardPage';
+import { PitchPage } from '@/pages/PitchPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
@@ -26,6 +27,7 @@ export function AppRoutes() {
         <Route path="authorities" element={<AuthorityDirectoryPage />} />
         <Route path="adopt" element={<AdoptStreetPage />} />
         <Route path="adopt/:adoptionId" element={<AdoptionDashboardPage />} />
+        <Route path="pitch" element={<PitchPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="issues/:issueId" element={<IssueDetailPage />} />
         <Route path="issues/:issueId/discuss" element={<DiscussPage />} />

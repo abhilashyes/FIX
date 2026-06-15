@@ -10,7 +10,11 @@
     "dashboard": "Dashboard",
     "profile": "Profile",
     "authorities": "Who's Responsible",
-    "adopt": "Adopt a Street"
+    "adopt": "Adopt a Street",
+    "pitch": "Pitch deck"
+  },
+  "pitch": {
+    "openFull": "Open full screen"
   },
   "action": {
     "share": "Share",
