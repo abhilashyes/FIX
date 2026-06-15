@@ -85,6 +85,21 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "authorities": {
+    "administrative": "ಆಡಳಿತ ಸರಪಳಿ",
+    "elected": "ಚುನಾಯಿತ ಪ್ರತಿನಿಧಿಗಳು",
+    "responsible": "ಇಲ್ಲಿ ಜವಾಬ್ದಾರರು ಯಾರು",
+    "escalationLadder": "ಎಸ್ಕಲೇಶನ್ ಏಣಿ",
+    "nextPerson": "ಬಗೆಹರಿಯದಿದ್ದರೆ, ಮುಂದಿನ ವ್ಯಕ್ತಿ",
+    "escalate": "ಮುಂದಿನ ಕಚೇರಿಗೆ ತಿಳಿಸಿ",
+    "escalatedTo": "{{name}} ವರೆಗೆ ತಿಳಿಸಲಾಗಿದೆ",
+    "selectLocality": "{{label}} ಪ್ರಕಾರ ನೋಡಿ",
+    "wholeStructure": "ಸಂಪೂರ್ಣ ರಚನೆ",
+    "jurisdiction": "ವ್ಯಾಪ್ತಿ",
+    "contact": "ಕಚೇರಿ ಸಂಪರ್ಕ",
+    "remit": "ನಿರ್ವಹಿಸುತ್ತದೆ",
+    "sampleNote": "ಪ್ರಾತಿನಿಧಿಕ ಮಾದರಿ ಅಧಿಕಾರಿಗಳು — ಉತ್ಪಾದನೆಯಲ್ಲಿ ಪರಿಶೀಲಿತ ಸರ್ಕಾರಿ ಡೇಟಾ ಸಿಂಕ್ ಆಗುತ್ತದೆ."
+  },
   "discuss": {
     "countermeasures": "ಪರಿಹಾರ ಕ್ರಮಗಳು",
     "proposals": "{{count}} ಪ್ರಸ್ತಾವನೆಗಳು",

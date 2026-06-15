@@ -85,6 +85,21 @@
     "missingFields": "कृपया शीर्षक, फ़ोटो और स्थान जोड़ें।",
     "createCta": "रिपोर्ट जमा करें"
   },
+  "authorities": {
+    "administrative": "प्रशासनिक श्रृंखला",
+    "elected": "निर्वाचित प्रतिनिधि",
+    "responsible": "यहाँ ज़िम्मेदार कौन",
+    "escalationLadder": "एस्केलेशन सीढ़ी",
+    "nextPerson": "अनसुलझा रहने पर, अगला व्यक्ति है",
+    "escalate": "अगले कार्यालय को सूचित रखें",
+    "escalatedTo": "{{name}} तक सूचित किया गया",
+    "selectLocality": "{{label}} अनुसार देखें",
+    "wholeStructure": "पूरी संरचना",
+    "jurisdiction": "क्षेत्राधिकार",
+    "contact": "कार्यालय संपर्क",
+    "remit": "संभालता है",
+    "sampleNote": "प्रतिनिधि नमूना अधिकारी — उत्पादन में सत्यापित सरकारी डेटा समन्वयित होगा।"
+  },
   "discuss": {
     "countermeasures": "समाधान उपाय",
     "proposals": "{{count}} प्रस्ताव",

@@ -47,7 +47,14 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 4 of 11
+## Project status — Milestone 5 of 11
+
+**M5 (Who's Responsible + escalation)** adds: a browsable **hierarchy directory** for the
+place's state — both the **administrative** and **elected** chains as official profile cards
+(clearly-labelled sample office-holders), filterable by locality. Each **issue** now shows a
+**Responsible panel** with the matched office-holders for that location and a respectful
+**escalation ladder** ("if unresolved, the next person is…") with one-tap "keep the next
+office informed" that logs to the engagement record.
 
 **M4 (discussion, countermeasures & voting)** adds: first-class **countermeasure proposals**
 on each issue with **"Would work / Wouldn't work" + reason** voting (tally bars, "community

@@ -85,6 +85,21 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "authorities": {
+    "administrative": "Administrative chain",
+    "elected": "Elected representatives",
+    "responsible": "Who's responsible here",
+    "escalationLadder": "Escalation ladder",
+    "nextPerson": "If unresolved, the next person is",
+    "escalate": "Keep the next office informed",
+    "escalatedTo": "Informed up to {{name}}",
+    "selectLocality": "View by {{label}}",
+    "wholeStructure": "Whole structure",
+    "jurisdiction": "Jurisdiction",
+    "contact": "Office contact",
+    "remit": "Handles",
+    "sampleNote": "Representative sample office-holders — production syncs verified data from official sources."
+  },
   "discuss": {
     "countermeasures": "Countermeasures",
     "proposals": "{{count}} proposals",

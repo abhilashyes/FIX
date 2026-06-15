@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import type { Issue, IssueId, ResponsibleChain, User } from '@/types';
+import type { Issue, IssueId, User } from '@/types';
 import { ImageGenStatus } from '@/types';
 import { api } from '@/data/api';
 import { usePlaceStore } from '@/store/usePlaceStore';
@@ -15,6 +15,7 @@ import { UpvoteButton } from '@/components/issue/UpvoteButton';
 import { BeforeAfterSlider } from '@/components/issue/BeforeAfterSlider';
 import { IssueMap } from '@/components/map/IssueMap';
 import { DiscussionSection } from '@/components/discussion/DiscussionSection';
+import { ResponsiblePanel } from '@/components/authority/ResponsiblePanel';
 
 export function IssueDetailPage() {
   const { t } = useTranslation();
@@ -22,7 +23,6 @@ export function IssueDetailPage() {
   const place = usePlaceStore((s) => s.activePlace)();
   const [issue, setIssue] = useState<Issue | null>(null);
   const [reporter, setReporter] = useState<User | null>(null);
-  const [chain, setChain] = useState<ResponsibleChain | null>(null);
   const [missing, setMissing] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,6 @@ export function IssueDetailPage() {
         if (!active) return;
         setIssue(i);
         void api.getUser(i.reporterId).then((u) => active && setReporter(u));
-        void api.resolveResponsibleChain(i.id).then((c) => active && setChain(c));
       })
       .catch(() => active && setMissing(true));
     return () => {
@@ -116,30 +115,14 @@ export function IssueDetailPage() {
         </div>
       </section>
 
-      {/* Responsible (teaser — full ladder in the hierarchy milestone) */}
-      {chain && (chain.administrative[0] || chain.elected[0]) && (
-        <section className="mt-6">
-          <h2 className="mb-2 font-display font-bold text-ink">{t('nav.authorities')}</h2>
-          <div className="grid gap-2 sm:grid-cols-2">
-            {[chain.administrative[0], chain.elected[0]].map(
-              (role) =>
-                role?.officeHolder && (
-                  <div key={role.id} className="rounded-xl border border-line bg-white p-3">
-                    <p className="text-xs uppercase tracking-wide text-ink-muted">{role.title}</p>
-                    <p className="font-medium text-ink">{role.officeHolder.name}</p>
-                    <p className="text-xs text-ink-muted">{role.jurisdiction.scopeLabel}</p>
-                  </div>
-                ),
-            )}
-          </div>
-          <Link
-            to={`/${place.id}/authorities`}
-            className="mt-2 inline-block text-sm font-medium text-brand hover:text-brand-hover"
-          >
-            {t('page.authorities.subtitle')} →
-          </Link>
-        </section>
-      )}
+      {/* Responsible chains + escalation ladder */}
+      <ResponsiblePanel issue={issue} />
+      <Link
+        to={`/${place.id}/authorities`}
+        className="mt-2 inline-block text-sm font-medium text-brand hover:text-brand-hover"
+      >
+        {t('page.authorities.subtitle')} →
+      </Link>
 
       {/* Status timeline */}
       <section className="mt-6">
