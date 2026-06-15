@@ -47,7 +47,13 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 6 of 11
+## Project status — Milestone 7 of 11
+
+**M7 (prioritization dashboard)** builds out the Dashboard with **recharts**: a transparent
+**Top priorities** list (per-component score breakdown + visible formula), a **status funnel**,
+**reported-vs-resolved trends** (6 months), **locality hotspots** (heatmap-style), filters by
+category / locality / status, and a **Civic Body View** toggle with an SLA-aging report and a
+mock CSV **export** — alongside the shared scoreboard.
 
 **M6 (accountability)** adds, on each issue: an **engagement log** (meetings, calls, letters,
 requests with dates + outcomes), a **commitment tracker** with neutral statuses (Completed /

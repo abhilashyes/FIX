@@ -85,6 +85,24 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "dashboard": {
+    "priorityList": "Top priorities",
+    "formula": "Score = {{formula}}",
+    "funnel": "Status funnel",
+    "trends": "Reported vs resolved (6 months)",
+    "hotspots": "Hotspots by locality",
+    "filters": "Filters",
+    "allCategories": "All categories",
+    "allLocalities": "All localities",
+    "allStatuses": "All statuses",
+    "civicBodyView": "Civic Body View",
+    "slaAging": "SLA aging",
+    "daysInStatus": "{{days}}d in status",
+    "breached": "Over SLA",
+    "export": "Export summary",
+    "reported": "Reported",
+    "resolvedLine": "Resolved"
+  },
   "account": {
     "title": "Accountability",
     "engagement": "Engagement log",

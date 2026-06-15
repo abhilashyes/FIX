@@ -85,6 +85,24 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "dashboard": {
+    "priorityList": "ಪ್ರಮುಖ ಆದ್ಯತೆಗಳು",
+    "formula": "ಅಂಕ = {{formula}}",
+    "funnel": "ಸ್ಥಿತಿ ಫನಲ್",
+    "trends": "ವರದಿ vs ಪರಿಹಾರ (6 ತಿಂಗಳು)",
+    "hotspots": "ಪ್ರದೇಶವಾರು ಹಾಟ್‌ಸ್ಪಾಟ್",
+    "filters": "ಫಿಲ್ಟರ್‌ಗಳು",
+    "allCategories": "ಎಲ್ಲಾ ವರ್ಗಗಳು",
+    "allLocalities": "ಎಲ್ಲಾ ಪ್ರದೇಶಗಳು",
+    "allStatuses": "ಎಲ್ಲಾ ಸ್ಥಿತಿಗಳು",
+    "civicBodyView": "ನಗರ ಸಂಸ್ಥೆ ನೋಟ",
+    "slaAging": "SLA ಏಜಿಂಗ್",
+    "daysInStatus": "{{days}} ದಿನ ಈ ಸ್ಥಿತಿಯಲ್ಲಿ",
+    "breached": "SLA ಮೀರಿದೆ",
+    "export": "ಸಾರಾಂಶ ರಫ್ತು",
+    "reported": "ವರದಿ",
+    "resolvedLine": "ಪರಿಹಾರ"
+  },
   "account": {
     "title": "ಜವಾಬ್ದಾರಿ",
     "engagement": "ಸಂಪರ್ಕ ದಾಖಲೆ",

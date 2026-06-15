@@ -85,6 +85,24 @@
     "missingFields": "कृपया शीर्षक, फ़ोटो और स्थान जोड़ें।",
     "createCta": "रिपोर्ट जमा करें"
   },
+  "dashboard": {
+    "priorityList": "शीर्ष प्राथमिकताएँ",
+    "formula": "अंक = {{formula}}",
+    "funnel": "स्थिति फ़नल",
+    "trends": "दर्ज बनाम हल (6 माह)",
+    "hotspots": "क्षेत्र अनुसार हॉटस्पॉट",
+    "filters": "फ़िल्टर",
+    "allCategories": "सभी श्रेणियाँ",
+    "allLocalities": "सभी क्षेत्र",
+    "allStatuses": "सभी स्थितियाँ",
+    "civicBodyView": "नगर निकाय दृश्य",
+    "slaAging": "SLA एजिंग",
+    "daysInStatus": "{{days}} दिन इस स्थिति में",
+    "breached": "SLA से अधिक",
+    "export": "सारांश निर्यात",
+    "reported": "दर्ज",
+    "resolvedLine": "हल"
+  },
   "account": {
     "title": "जवाबदेही",
     "engagement": "संपर्क लॉग",
