@@ -1,18 +1,25 @@
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { DEFAULT_PLACE_ID } from '@/config/places';
 import { AppShell } from '@/components/layout/AppShell';
-import { HomePage } from '@/pages/HomePage';
-import { ReportIssuePage } from '@/pages/ReportIssuePage';
-import { IssueDetailPage } from '@/pages/IssueDetailPage';
-import { DiscussPage } from '@/pages/DiscussPage';
-import { DashboardPage } from '@/pages/DashboardPage';
-import { MobilizationPage } from '@/pages/MobilizationPage';
-import { AuthorityDirectoryPage } from '@/pages/AuthorityDirectoryPage';
-import { AdoptStreetPage } from '@/pages/AdoptStreetPage';
-import { AdoptionDashboardPage } from '@/pages/AdoptionDashboardPage';
-import { PitchPage } from '@/pages/PitchPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+
+// Lazy-load route pages so heavy deps (recharts, leaflet) split into on-demand chunks.
+const HomePage = lazy(() => import('@/pages/HomePage').then((m) => ({ default: m.HomePage })));
+const ReportIssuePage = lazy(() => import('@/pages/ReportIssuePage').then((m) => ({ default: m.ReportIssuePage })));
+const IssueDetailPage = lazy(() => import('@/pages/IssueDetailPage').then((m) => ({ default: m.IssueDetailPage })));
+const DiscussPage = lazy(() => import('@/pages/DiscussPage').then((m) => ({ default: m.DiscussPage })));
+const DashboardPage = lazy(() => import('@/pages/DashboardPage').then((m) => ({ default: m.DashboardPage })));
+const MobilizationPage = lazy(() => import('@/pages/MobilizationPage').then((m) => ({ default: m.MobilizationPage })));
+const AuthorityDirectoryPage = lazy(() =>
+  import('@/pages/AuthorityDirectoryPage').then((m) => ({ default: m.AuthorityDirectoryPage })),
+);
+const AdoptStreetPage = lazy(() => import('@/pages/AdoptStreetPage').then((m) => ({ default: m.AdoptStreetPage })));
+const AdoptionDashboardPage = lazy(() =>
+  import('@/pages/AdoptionDashboardPage').then((m) => ({ default: m.AdoptionDashboardPage })),
+);
+const PitchPage = lazy(() => import('@/pages/PitchPage').then((m) => ({ default: m.PitchPage })));
+const ProfilePage = lazy(() => import('@/pages/ProfilePage').then((m) => ({ default: m.ProfilePage })));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })));
 
 /** Central URL → page map. Place lives in the URL so deep links stay in sync. */
 export function AppRoutes() {

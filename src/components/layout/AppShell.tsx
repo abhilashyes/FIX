@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import type { PlaceId } from '@/types';
 import { getPlace } from '@/config/places';
@@ -6,6 +6,7 @@ import { usePlaceStore } from '@/store/usePlaceStore';
 import { TopBar } from './TopBar';
 import { SideNav } from './SideNav';
 import { BottomTabNav } from './BottomTabNav';
+import { Loading } from '@/components/ui/Loading';
 
 /** Responsive frame: top bar everywhere, sidebar on desktop, bottom tabs on mobile. */
 export function AppShell() {
@@ -26,7 +27,9 @@ export function AppShell() {
       <div className="mx-auto flex w-full max-w-app">
         <SideNav />
         <main className="min-w-0 flex-1 px-3 pb-24 pt-4 sm:px-4 md:pb-10">
-          <Outlet />
+          <Suspense fallback={<Loading />}>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
       <BottomTabNav />

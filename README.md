@@ -47,7 +47,50 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 9 of 11
+## Project status — all 11 milestones complete
+
+**M11 (polish)** adds: route-level **code-splitting** (recharts and Leaflet load on demand —
+initial bundle ~316 KB vs ~916 KB), a **loading fallback** for lazy routes, reduced-motion
+support, and this demo script.
+
+**M10 (Share & Invite)** adds: a native **share sheet** (Web Share API + WhatsApp / Telegram /
+Facebook / X / email fallbacks + copy link), an on-brand **language-aware preview card**, and
+deep links — wired into issues (share, "We fixed it!" celebrate, thank the office), mobilization
+plans (rally), fix-it days (invite), the adoption dashboard (adopter recognition), and the home
+header (invite a neighbour).
+
+## 5-minute demo walkthrough
+
+Live: **https://abhilashyes.github.io/FIX/**. Use the header **place switcher** (Nayanagar
+metro / Devarahalli town / Hosakere village) and **language switcher** (English / हिन्दी /
+ಕನ್ನಡ, plus Tamil/Telugu stubs) throughout — everything is config- and i18n-driven.
+
+1. **Home & map (M2)** — land on Nayanagar; toggle **Map** to see severity-coloured pins;
+   tap a card's **"affects me too"** to join the affected community.
+2. **Report + Show the fix (M3)** — **Report** tab: category → photo → drop a pin →
+   countermeasure → **Show the fix** ("Generating your vision…" → before/after slider) →
+   submit; the new issue opens.
+3. **Issue detail (M2/M4/M5/M6)** — open issue #1: before/after, status timeline; vote a
+   **countermeasure** and post a threaded **comment**; see the **Responsible panel** + escalation
+   ladder; open **Accountability** for the commitment + engagement log and generate a letter.
+4. **Dashboard (M7)** — **Top priorities** with the transparent formula, funnel, trends,
+   locality hotspots; flip **Civic Body View** for SLA aging + CSV export; scoreboard below.
+5. **Mobilize (M8)** — on issue #3, **View mobilization plan**: pledge to a need, RSVP the
+   fix-it day.
+6. **Adopt a Street (M9)** — open the **GreenCore** adoption: metrics, before/after gallery,
+   log hours, export the CSR report; the badge shows on issue #3.
+7. **Share (M10)** — hit **Share** on an issue or **Invite a neighbour** in the header to see
+   the on-brand, language-aware card and network options.
+8. **Switch place to Hosakere** to see the rural three-tier panchayat hierarchy and a
+   Tamil-default UI — proving the platform works at any settlement scale.
+
+## Out of scope for the prototype (mocked/stubbed, ready to make real)
+
+Real payments / CSR-fund escrow, SMS/email/push, real geolocation, content moderation, a real
+AI image backend (behind `imageService`), real OG-image rendering + share analytics (behind
+`shareService`), verified live official data, and the native mobile app. See the roadmap below.
+
+## Earlier milestones
 
 **M9 (Adopt a Street / CSR)** adds: organization accounts adopting a street/junction/park/
 stretch, a browse + create flow, an **adoption dashboard** (funds deployed vs committed,
