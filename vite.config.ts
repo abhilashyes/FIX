@@ -4,6 +4,9 @@ import { fileURLToPath, URL } from 'node:url';
 
 // https://vite.dev/config/
 export default defineConfig({
+  // Relative base so the built app works under any path (e.g. GitHub Pages /FIX/)
+  // without hardcoding the repo name. HashRouter handles client routing.
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {

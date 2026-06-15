@@ -30,6 +30,23 @@ npm run build    # type-check (tsc strict) + production build
 npm run preview  # preview the production build
 ```
 
+## Deployment (GitHub Pages + CI)
+
+CI/CD is wired via GitHub Actions (`.github/workflows/deploy.yml`):
+
+- **CI** — on every push and pull request, a `build` job runs `npm ci` + `npm run build`
+  (TypeScript strict type-check + Vite production build). This is the merge gate.
+- **Deploy** — on pushes to `main` or `claude/prompt-review-5gp1o1`, a `deploy` job publishes
+  the built `dist/` to **GitHub Pages**. Pull requests are checked but not deployed.
+
+The build uses a **relative base path** (`base: './'` in `vite.config.ts`) and **HashRouter**,
+so it works under the project subpath (`https://<owner>.github.io/FIX/`) with no server-side
+rewrite rules.
+
+**One-time setup (repo owner):** in **Settings → Pages → Build and deployment → Source**,
+choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
+the live URL appears in the workflow run's `deploy` job summary.
+
 ## Project status — Milestone 1 of 11
 
 This is the scaffold milestone. Built so far:
