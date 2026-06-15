@@ -47,7 +47,14 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 2 of 11
+## Project status — Milestone 3 of 11
+
+**M3 (report flow + "Show the fix")** adds: an end-to-end **Report an issue** flow — category,
+severity, title/description, photo (sample picker or upload with preview), drop-a-pin location
+(or "use my location"), and an optional countermeasure. The signature **"Show the fix"**
+feature generates an AI "after" image behind the `imageService` mock — a realistic
+"Generating your vision…" state, then a before/after reveal. Submitting creates the issue in
+the in-memory store (auto-routed to the nearest locality) and opens its detail page.
 
 **M2 (map, list, issue detail)** adds: a Leaflet/OpenStreetMap home with severity-coloured
 pins and popups, a List/Map view toggle, rich issue cards (category, severity, status,

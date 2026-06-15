@@ -74,7 +74,16 @@
       "countermeasure": "Proposed countermeasure (optional)"
     },
     "generating": "Generating your vision…",
-    "visionReady": "Here's how this spot could look once fixed"
+    "visionReady": "Here's how this spot could look once fixed",
+    "choosePhoto": "Pick a sample photo or upload one",
+    "upload": "Upload",
+    "tapToPin": "Tap the map to drop a pin",
+    "generateVision": "Generate the AI ‘after’ vision",
+    "regenerate": "Regenerate vision",
+    "visionHint": "Optional — turns your report into a shared vision the community can rally behind.",
+    "submitting": "Submitting…",
+    "missingFields": "Please add a title, a photo and a location to continue.",
+    "createCta": "Submit report"
   },
   "place": {
     "switch": "Switch place",
