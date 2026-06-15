@@ -85,6 +85,24 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "share": {
+    "title": "Share",
+    "copyLink": "Copy link",
+    "copied": "Link copied!",
+    "via": "via fix.",
+    "kind": {
+      "ShareIssue": "This affects our area — add your voice",
+      "InviteToEvent": "Join our fix-it day",
+      "RallyMobilization": "Help us reach our goal",
+      "CelebrateResolution": "We fixed it!",
+      "NeighbourReferral": "Join fix in our area",
+      "AdopterRecognition": "Proud to support our neighbourhood",
+      "ThankOfficial": "Thanks for resolving this"
+    },
+    "celebrate": "Celebrate the fix",
+    "thank": "Thank the office",
+    "inviteNeighbour": "Invite a neighbour"
+  },
   "adopt": {
     "title": "Adopt a Street",
     "adoptedBy": "Adopted by {{org}}",

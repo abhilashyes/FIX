@@ -85,6 +85,24 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "share": {
+    "title": "ಹಂಚಿಕೊಳ್ಳಿ",
+    "copyLink": "ಲಿಂಕ್ ನಕಲಿಸಿ",
+    "copied": "ಲಿಂಕ್ ನಕಲಾಗಿದೆ!",
+    "via": "fix. ಮೂಲಕ",
+    "kind": {
+      "ShareIssue": "ಇದು ನಮ್ಮ ಪ್ರದೇಶದ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುತ್ತದೆ — ನಿಮ್ಮ ಧ್ವನಿ ಸೇರಿಸಿ",
+      "InviteToEvent": "ನಮ್ಮ ಫಿಕ್ಸ್-ಇಟ್ ದಿನಕ್ಕೆ ಸೇರಿ",
+      "RallyMobilization": "ನಮ್ಮ ಗುರಿ ತಲುಪಲು ಸಹಾಯ ಮಾಡಿ",
+      "CelebrateResolution": "ನಾವು ಸರಿಪಡಿಸಿದ್ದೇವೆ!",
+      "NeighbourReferral": "ನಮ್ಮ ಪ್ರದೇಶದಲ್ಲಿ fix ಸೇರಿ",
+      "AdopterRecognition": "ನಮ್ಮ ನೆರೆಹೊರೆಯನ್ನು ಬೆಂಬಲಿಸುವ ಹೆಮ್ಮೆ",
+      "ThankOfficial": "ಪರಿಹರಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದ"
+    },
+    "celebrate": "ಪರಿಹಾರ ಆಚರಿಸಿ",
+    "thank": "ಕಚೇರಿಗೆ ಧನ್ಯವಾದ",
+    "inviteNeighbour": "ನೆರೆಯವರನ್ನು ಆಹ್ವಾನಿಸಿ"
+  },
   "adopt": {
     "title": "ರಸ್ತೆ ದತ್ತು",
     "adoptedBy": "{{org}} ದತ್ತು ಪಡೆದಿದೆ",

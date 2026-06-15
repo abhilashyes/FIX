@@ -10,6 +10,8 @@ import { nowISO } from '@/lib/ids';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/Button';
 import { BeforeAfterSlider } from '@/components/issue/BeforeAfterSlider';
+import { ShareButton } from '@/components/share/ShareButton';
+import { ShareKind } from '@/types';
 
 function Stat({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
@@ -109,8 +111,14 @@ export function AdoptionDashboardPage() {
         {t('adopt.period')}: {formatDate(adoption.periodStart, place)} – {formatDate(adoption.periodEnd, place)}
       </p>
 
-      <div className="mt-3">
+      <div className="mt-3 flex flex-wrap gap-2">
         <Button onClick={logHours}>+ {t('adopt.logHours')} (8h)</Button>
+        <ShareButton
+          kind={ShareKind.AdopterRecognition}
+          entityRef={{ type: 'adoption', id: adoption.id }}
+          image={adoption.impact.beforeAfterPairs[0]?.after?.url}
+          summary={`${org?.name ?? ''} · ${adoption.targetName}`}
+        />
       </div>
 
       {adoption.impact.beforeAfterPairs.length > 0 && (

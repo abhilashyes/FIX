@@ -10,6 +10,8 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/Button';
 import { NeedProgress } from '@/components/mobilization/NeedProgress';
 import { FixItDayCard } from '@/components/mobilization/FixItDayCard';
+import { ShareButton } from '@/components/share/ShareButton';
+import { ShareKind } from '@/types';
 
 export function MobilizationPage() {
   const { t } = useTranslation();
@@ -101,7 +103,14 @@ export function MobilizationPage() {
         </div>
       ) : (
         <>
-          <h2 className="font-display text-lg font-extrabold text-ink">{plan.title}</h2>
+          <div className="flex items-start justify-between gap-2">
+            <h2 className="font-display text-lg font-extrabold text-ink">{plan.title}</h2>
+            <ShareButton
+              kind={ShareKind.RallyMobilization}
+              entityRef={{ type: 'plan', id: plan.id }}
+              summary={plan.description || plan.title}
+            />
+          </div>
           {plan.description && <p className="mt-1 text-sm text-ink-muted">{plan.description}</p>}
 
           <h3 className="mb-2 mt-4 font-display font-bold text-ink">{t('mobilize.needs')}</h3>

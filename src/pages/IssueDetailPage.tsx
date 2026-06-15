@@ -18,6 +18,8 @@ import { DiscussionSection } from '@/components/discussion/DiscussionSection';
 import { ResponsiblePanel } from '@/components/authority/ResponsiblePanel';
 import { AccountabilitySection } from '@/components/authority/AccountabilitySection';
 import { AdoptedBadge } from '@/components/adoption/AdoptedBadge';
+import { ShareButton } from '@/components/share/ShareButton';
+import { ShareKind } from '@/types';
 import type { Adoption } from '@/types';
 
 export function IssueDetailPage() {
@@ -117,6 +119,29 @@ export function IssueDetailPage() {
         >
           {issue.mobilizationPlanId ? t('mobilize.openPlan') : t('mobilize.createPlan')}
         </Link>
+        <ShareButton
+          kind={ShareKind.ShareIssue}
+          entityRef={{ type: 'issue', id: issue.id }}
+          image={hasVision ? issue.beforeAfter?.after?.url : issue.beforePhoto.url}
+          summary={issue.description}
+        />
+        {issue.resolution && (
+          <>
+            <ShareButton
+              kind={ShareKind.CelebrateResolution}
+              entityRef={{ type: 'issue', id: issue.id }}
+              image={issue.resolution.afterPhoto.url}
+              summary={issue.resolution.summary}
+              label={t('share.celebrate')}
+              variant="primary"
+            />
+            <ShareButton
+              kind={ShareKind.ThankOfficial}
+              entityRef={{ type: 'issue', id: issue.id }}
+              label={t('share.thank')}
+            />
+          </>
+        )}
       </div>
 
       {/* Description */}

@@ -4,6 +4,8 @@ import { api } from '@/data/api';
 import { useSessionStore } from '@/store/useSessionStore';
 import { formatDate } from '@/lib/format';
 import { MeetingPointMap } from '@/components/map/MeetingPointMap';
+import { ShareButton } from '@/components/share/ShareButton';
+import { ShareKind } from '@/types';
 
 interface Props {
   event: FixItDay;
@@ -36,7 +38,14 @@ export function FixItDayCard({ event, place, onChange }: Props) {
       <div className="mt-2 overflow-hidden rounded-xl border border-line">
         <MeetingPointMap point={event.meetingPoint} />
       </div>
-      <p className="mt-2 text-sm font-medium text-ink">{t('mobilize.attendees', { count: going })}</p>
+      <div className="mt-2 flex items-center justify-between gap-2">
+        <p className="text-sm font-medium text-ink">{t('mobilize.attendees', { count: going })}</p>
+        <ShareButton
+          kind={ShareKind.InviteToEvent}
+          entityRef={{ type: 'event', id: event.id }}
+          summary={`${event.title} · ${event.meetingPointLabel}`}
+        />
+      </div>
       <div className="mt-2 flex gap-2">
         {opts.map((o) => (
           <button

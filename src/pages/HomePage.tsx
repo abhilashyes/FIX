@@ -8,6 +8,8 @@ import { computeIssuePriority } from '@/lib/issuePriority';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { IssueCard } from '@/components/issue/IssueCard';
 import { IssueMap } from '@/components/map/IssueMap';
+import { ShareButton } from '@/components/share/ShareButton';
+import { ShareKind } from '@/types';
 
 type View = 'list' | 'map';
 
@@ -48,12 +50,19 @@ export function HomePage() {
         title={t('page.home.title')}
         subtitle={`${place.name} · ${place.civicBodyName}`}
         action={
-          <Link
-            to={`/${placeId}/report`}
-            className="hidden min-h-touch items-center rounded-xl bg-brand px-4 font-medium text-white hover:bg-brand-hover sm:inline-flex"
-          >
-            {t('action.report')}
-          </Link>
+          <div className="flex items-center gap-2">
+            <ShareButton
+              kind={ShareKind.NeighbourReferral}
+              entityRef={{ type: 'referral', placeId }}
+              label={t('share.inviteNeighbour')}
+            />
+            <Link
+              to={`/${placeId}/report`}
+              className="hidden min-h-touch items-center rounded-xl bg-brand px-4 font-medium text-white hover:bg-brand-hover sm:inline-flex"
+            >
+              {t('action.report')}
+            </Link>
+          </div>
         }
       />
 
