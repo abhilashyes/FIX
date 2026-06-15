@@ -85,6 +85,36 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "mobilize": {
+    "plan": "ಸಜ್ಜುಗೊಳಿಸುವ ಯೋಜನೆ",
+    "noPlan": "ಇನ್ನೂ ಯೋಜನೆ ಇಲ್ಲ.",
+    "createPlan": "ಸಜ್ಜುಗೊಳಿಸುವ ಯೋಜನೆ ಆರಂಭಿಸಿ",
+    "openPlan": "ಯೋಜನೆ ನೋಡಿ",
+    "needs": "ನಮಗೆ ಬೇಕಾದದ್ದು",
+    "kind": {
+      "Volunteers": "ಸ್ವಯಂಸೇವಕರು",
+      "Materials": "ಸಾಮಗ್ರಿ",
+      "Funds": "ನಿಧಿ",
+      "Tools": "ಉಪಕರಣಗಳು"
+    },
+    "pledge": "ವಚನ ನೀಡಿ",
+    "pledgeTime": "ನಾನು ಸ್ವಯಂಸೇವೆ ಮಾಡುತ್ತೇನೆ",
+    "pledgeMoney": "ನಾನು ದೇಣಿಗೆ ನೀಡುತ್ತೇನೆ",
+    "pledgeResource": "ನಾನು ಒದಗಿಸುತ್ತೇನೆ",
+    "amount": "ಮೊತ್ತ",
+    "quantity": "ಪ್ರಮಾಣ",
+    "goalProgress": "{{target}} ರಲ್ಲಿ {{done}}",
+    "fixItDay": "ಫಿಕ್ಸ್-ಇಟ್ ದಿನ",
+    "meetingPoint": "ಭೇಟಿ ಸ್ಥಳ",
+    "attendees": "{{count}} ಬರುತ್ತಿದ್ದಾರೆ",
+    "rsvp": "ಹಾಜರಾತಿ",
+    "going": "ಬರುತ್ತಿದ್ದೇನೆ",
+    "maybe": "ಬಹುಶಃ",
+    "declined": "ಬರಲಾಗದು",
+    "newPlanTitle": "ಯೋಜನೆ ಶೀರ್ಷಿಕೆ",
+    "create": "ಯೋಜನೆ ರಚಿಸಿ",
+    "planHint": "ಒಟ್ಟಿಗೆ ಸರಿಪಡಿಸಲು ಸ್ವಯಂಸೇವಕರು, ಸಾಮಗ್ರಿ ಮತ್ತು ನಿಧಿ ಸಜ್ಜುಗೊಳಿಸಿ."
+  },
   "dashboard": {
     "priorityList": "ಪ್ರಮುಖ ಆದ್ಯತೆಗಳು",
     "formula": "ಅಂಕ = {{formula}}",

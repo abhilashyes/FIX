@@ -85,6 +85,36 @@
     "missingFields": "कृपया शीर्षक, फ़ोटो और स्थान जोड़ें।",
     "createCta": "रिपोर्ट जमा करें"
   },
+  "mobilize": {
+    "plan": "जुटाव योजना",
+    "noPlan": "अभी कोई जुटाव योजना नहीं।",
+    "createPlan": "जुटाव योजना शुरू करें",
+    "openPlan": "जुटाव योजना देखें",
+    "needs": "हमें क्या चाहिए",
+    "kind": {
+      "Volunteers": "स्वयंसेवक",
+      "Materials": "सामग्री",
+      "Funds": "धन",
+      "Tools": "उपकरण"
+    },
+    "pledge": "वचन दें",
+    "pledgeTime": "मैं स्वयंसेवा करूँगा",
+    "pledgeMoney": "मैं दान करूँगा",
+    "pledgeResource": "मैं प्रदान करूँगा",
+    "amount": "राशि",
+    "quantity": "मात्रा",
+    "goalProgress": "{{target}} में से {{done}}",
+    "fixItDay": "फ़िक्स-इट दिवस",
+    "meetingPoint": "मिलन स्थल",
+    "attendees": "{{count}} आ रहे हैं",
+    "rsvp": "उपस्थिति",
+    "going": "आ रहा हूँ",
+    "maybe": "शायद",
+    "declined": "नहीं आ सकता",
+    "newPlanTitle": "योजना शीर्षक",
+    "create": "योजना बनाएँ",
+    "planHint": "इसे मिलकर ठीक करने हेतु स्वयंसेवक, सामग्री और धन जुटाएँ।"
+  },
   "dashboard": {
     "priorityList": "शीर्ष प्राथमिकताएँ",
     "formula": "अंक = {{formula}}",

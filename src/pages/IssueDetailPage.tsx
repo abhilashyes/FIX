@@ -97,6 +97,12 @@ export function IssueDetailPage() {
         <span className="text-sm text-ink-muted">
           {t('common.affected', { count: issue.affectedUserIds.length })}
         </span>
+        <Link
+          to={`/${place.id}/issues/${issue.id}/mobilize`}
+          className="inline-flex min-h-touch items-center rounded-xl border border-line px-3 text-sm font-medium text-ink hover:bg-brand-tint"
+        >
+          {issue.mobilizationPlanId ? t('mobilize.openPlan') : t('mobilize.createPlan')}
+        </Link>
       </div>
 
       {/* Description */}

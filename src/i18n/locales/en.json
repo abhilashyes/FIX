@@ -85,6 +85,36 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "mobilize": {
+    "plan": "Mobilization plan",
+    "noPlan": "No mobilization plan yet.",
+    "createPlan": "Start a mobilization plan",
+    "openPlan": "View mobilization plan",
+    "needs": "What we need",
+    "kind": {
+      "Volunteers": "Volunteers",
+      "Materials": "Materials",
+      "Funds": "Funds",
+      "Tools": "Tools"
+    },
+    "pledge": "Pledge",
+    "pledgeTime": "I'll volunteer",
+    "pledgeMoney": "I'll donate",
+    "pledgeResource": "I'll provide",
+    "amount": "Amount",
+    "quantity": "Quantity",
+    "goalProgress": "{{done}} of {{target}}",
+    "fixItDay": "Fix-it day",
+    "meetingPoint": "Meeting point",
+    "attendees": "{{count}} going",
+    "rsvp": "RSVP",
+    "going": "Going",
+    "maybe": "Maybe",
+    "declined": "Can't make it",
+    "newPlanTitle": "Plan title",
+    "create": "Create plan",
+    "planHint": "Organize volunteers, materials and funds to fix this together."
+  },
   "dashboard": {
     "priorityList": "Top priorities",
     "formula": "Score = {{formula}}",
