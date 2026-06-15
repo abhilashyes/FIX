@@ -85,6 +85,25 @@
     "missingFields": "Please add a title, a photo and a location to continue.",
     "createCta": "Submit report"
   },
+  "discuss": {
+    "countermeasures": "Countermeasures",
+    "proposals": "{{count}} proposals",
+    "addProposal": "Propose a countermeasure",
+    "proposalTitle": "Proposal title",
+    "proposalDesc": "How would this fix it?",
+    "wouldWork": "Would work",
+    "wouldNotWork": "Wouldn't work",
+    "accepted": "Community choice",
+    "reason": "Add a reason (optional)",
+    "comments": "Discussion",
+    "addComment": "Add a comment",
+    "reply": "Reply",
+    "post": "Post",
+    "noComments": "Be the first to comment.",
+    "noProposals": "No countermeasures proposed yet.",
+    "activity": "Most active discussions",
+    "estCost": "Est. cost"
+  },
   "place": {
     "switch": "Switch place",
     "ward": "ward",

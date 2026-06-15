@@ -85,6 +85,25 @@
     "missingFields": "कृपया शीर्षक, फ़ोटो और स्थान जोड़ें।",
     "createCta": "रिपोर्ट जमा करें"
   },
+  "discuss": {
+    "countermeasures": "समाधान उपाय",
+    "proposals": "{{count}} प्रस्ताव",
+    "addProposal": "उपाय प्रस्तावित करें",
+    "proposalTitle": "प्रस्ताव शीर्षक",
+    "proposalDesc": "यह समस्या कैसे ठीक करेगा?",
+    "wouldWork": "काम करेगा",
+    "wouldNotWork": "काम नहीं करेगा",
+    "accepted": "समुदाय की पसंद",
+    "reason": "कारण जोड़ें (वैकल्पिक)",
+    "comments": "चर्चा",
+    "addComment": "टिप्पणी जोड़ें",
+    "reply": "उत्तर",
+    "post": "भेजें",
+    "noComments": "पहली टिप्पणी करें।",
+    "noProposals": "अभी कोई उपाय प्रस्तावित नहीं।",
+    "activity": "सबसे सक्रिय चर्चाएँ",
+    "estCost": "अनुमानित लागत"
+  },
   "place": {
     "switch": "स्थान बदलें",
     "ward": "वार्ड",

@@ -30,7 +30,7 @@ export function AppRoutes() {
         <Route path="pitch" element={<PitchPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="issues/:issueId" element={<IssueDetailPage />} />
-        <Route path="issues/:issueId/discuss" element={<DiscussPage />} />
+        <Route path="issues/:issueId/discuss" element={<IssueDetailPage />} />
         <Route path="issues/:issueId/mobilize" element={<MobilizationPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

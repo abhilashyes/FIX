@@ -14,6 +14,7 @@ import { SeverityBadge } from '@/components/issue/SeverityBadge';
 import { UpvoteButton } from '@/components/issue/UpvoteButton';
 import { BeforeAfterSlider } from '@/components/issue/BeforeAfterSlider';
 import { IssueMap } from '@/components/map/IssueMap';
+import { DiscussionSection } from '@/components/discussion/DiscussionSection';
 
 export function IssueDetailPage() {
   const { t } = useTranslation();
@@ -174,6 +175,9 @@ export function IssueDetailPage() {
           {t('common.sampleData')}
         </p>
       </section>
+
+      {/* Discussion: countermeasures + voting + threaded comments */}
+      <DiscussionSection issueId={issue.id} place={place} />
     </article>
   );
 }

@@ -85,6 +85,25 @@
     "missingFields": "ದಯವಿಟ್ಟು ಶೀರ್ಷಿಕೆ, ಫೋಟೋ ಮತ್ತು ಸ್ಥಳ ಸೇರಿಸಿ.",
     "createCta": "ವರದಿ ಸಲ್ಲಿಸಿ"
   },
+  "discuss": {
+    "countermeasures": "ಪರಿಹಾರ ಕ್ರಮಗಳು",
+    "proposals": "{{count}} ಪ್ರಸ್ತಾವನೆಗಳು",
+    "addProposal": "ಪರಿಹಾರ ಸೂಚಿಸಿ",
+    "proposalTitle": "ಪ್ರಸ್ತಾವ ಶೀರ್ಷಿಕೆ",
+    "proposalDesc": "ಇದು ಹೇಗೆ ಸರಿಪಡಿಸುತ್ತದೆ?",
+    "wouldWork": "ಕೆಲಸ ಮಾಡುತ್ತದೆ",
+    "wouldNotWork": "ಕೆಲಸ ಮಾಡದು",
+    "accepted": "ಸಮುದಾಯದ ಆಯ್ಕೆ",
+    "reason": "ಕಾರಣ ಸೇರಿಸಿ (ಐಚ್ಛಿಕ)",
+    "comments": "ಚರ್ಚೆ",
+    "addComment": "ಕಾಮೆಂಟ್ ಸೇರಿಸಿ",
+    "reply": "ಉತ್ತರ",
+    "post": "ಕಳುಹಿಸಿ",
+    "noComments": "ಮೊದಲ ಕಾಮೆಂಟ್ ಮಾಡಿ.",
+    "noProposals": "ಇನ್ನೂ ಯಾವುದೇ ಪರಿಹಾರ ಸೂಚಿಸಿಲ್ಲ.",
+    "activity": "ಅತಿ ಸಕ್ರಿಯ ಚರ್ಚೆಗಳು",
+    "estCost": "ಅಂದಾಜು ವೆಚ್ಚ"
+  },
   "place": {
     "switch": "ಸ್ಥಳ ಬದಲಿಸಿ",
     "ward": "ವಾರ್ಡ್",

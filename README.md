@@ -47,7 +47,12 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 3 of 11
+## Project status — Milestone 4 of 11
+
+**M4 (discussion, countermeasures & voting)** adds: first-class **countermeasure proposals**
+on each issue with **"Would work / Wouldn't work" + reason** voting (tally bars, "community
+choice" badge) and a **threaded comment thread** with replies — all wired into the issue
+detail page. The **Discuss** tab ranks issues by community engagement.
 
 **M3 (report flow + "Show the fix")** adds: an end-to-end **Report an issue** flow — category,
 severity, title/description, photo (sample picker or upload with preview), drop-a-pin location
