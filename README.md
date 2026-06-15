@@ -47,9 +47,15 @@ rewrite rules.
 choose **GitHub Actions**. After that, every push to a deploy branch publishes automatically;
 the live URL appears in the workflow run's `deploy` job summary.
 
-## Project status — Milestone 1 of 11
+## Project status — Milestone 2 of 11
 
-This is the scaffold milestone. Built so far:
+**M2 (map, list, issue detail)** adds: a Leaflet/OpenStreetMap home with severity-coloured
+pins and popups, a List/Map view toggle, rich issue cards (category, severity, status,
+transparent priority score, "affects me too" upvote, "Show the fix" thumbnail), and a full
+issue detail page — before/after comparison slider, location map, status timeline, reporter +
+affected-community panel, and a responsible-officials teaser (full hierarchy lands in M5).
+
+Built in earlier milestones:
 
 - **Brand & theme** — Tailwind brand tokens (white UI, red `#D7263D` accent, Baloo 2 + Inter,
   Noto Sans fallback for Indic scripts) and the `fix.` wordmark (the "i" dot is a small red

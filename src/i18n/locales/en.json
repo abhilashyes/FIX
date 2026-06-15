@@ -93,7 +93,14 @@
     "priorityScore": "Priority score",
     "beforeAfter": "Before / After",
     "before": "Now",
-    "after": "After"
+    "after": "After",
+    "list": "List",
+    "map": "Map",
+    "reportedBy": "Reported by",
+    "affectedCommunity": "Affected community",
+    "statusTimeline": "Status timeline",
+    "location": "Location",
+    "noVision": "No AI vision generated yet"
   },
   "page": {
     "home": {

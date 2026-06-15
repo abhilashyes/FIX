@@ -1,20 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { Issue } from '@/types';
 import { api } from '@/data/api';
 import { usePlaceStore } from '@/store/usePlaceStore';
+import { computeIssuePriority } from '@/lib/issuePriority';
 import { PageHeader } from '@/components/layout/PageHeader';
+import { IssueCard } from '@/components/issue/IssueCard';
+import { IssueMap } from '@/components/map/IssueMap';
 
-/**
- * Home (read-only preview for M1): proves the data layer + place switching + i18n.
- * The Leaflet map and rich issue cards arrive in Milestone 2.
- */
+type View = 'list' | 'map';
+
 export function HomePage() {
   const { t } = useTranslation();
   const placeId = usePlaceStore((s) => s.activePlaceId);
   const place = usePlaceStore((s) => s.activePlace)();
   const [issues, setIssues] = useState<Issue[] | null>(null);
+  const [view, setView] = useState<View>('list');
 
   useEffect(() => {
     let active = true;
@@ -27,42 +29,64 @@ export function HomePage() {
     };
   }, [placeId]);
 
-  const localityName = (id: Issue['localityId']) =>
-    place.localities.find((l) => l.id === id)?.name ?? '';
+  const sorted = useMemo(
+    () =>
+      issues
+        ? [...issues].sort(
+            (a, b) => computeIssuePriority(b).total - computeIssuePriority(a).total,
+          )
+        : [],
+    [issues],
+  );
+
+  const onIssueChange = (updated: Issue) =>
+    setIssues((prev) => prev?.map((i) => (i.id === updated.id ? updated : i)) ?? prev);
 
   return (
     <div>
-      <PageHeader title={t('page.home.title')} subtitle={t('page.home.subtitle')} />
+      <PageHeader
+        title={t('page.home.title')}
+        subtitle={`${place.name} · ${place.civicBodyName}`}
+        action={
+          <Link
+            to={`/${placeId}/report`}
+            className="hidden min-h-touch items-center rounded-xl bg-brand px-4 font-medium text-white hover:bg-brand-hover sm:inline-flex"
+          >
+            {t('action.report')}
+          </Link>
+        }
+      />
 
-      <div className="mb-4 rounded-2xl border border-line bg-brand-tint/40 p-4 text-sm">
-        <span className="font-display font-bold text-ink">{place.name}</span>
-        <span className="text-ink-muted">
-          {' '}· {place.civicBodyName} · {place.localities.length}{' '}
-          {t('place.ward')}s
-        </span>
+      {/* View toggle */}
+      <div className="mb-4 inline-flex rounded-xl border border-line bg-white p-1" role="tablist">
+        {(['list', 'map'] as const).map((v) => (
+          <button
+            key={v}
+            role="tab"
+            aria-selected={view === v}
+            onClick={() => setView(v)}
+            className={`min-h-touch rounded-lg px-4 text-sm font-medium transition-colors ${
+              view === v ? 'bg-brand text-white' : 'text-ink hover:bg-brand-tint'
+            }`}
+          >
+            {v === 'list' ? t('common.list') : t('common.map')}
+          </button>
+        ))}
       </div>
 
       {issues === null ? (
         <p className="py-10 text-center text-sm text-ink-muted">{t('common.loading')}</p>
+      ) : view === 'map' ? (
+        <div className="h-[60vh] overflow-hidden rounded-2xl border border-line">
+          <IssueMap place={place} issues={issues} />
+        </div>
+      ) : sorted.length === 0 ? (
+        <p className="py-10 text-center text-sm text-ink-muted">{t('common.empty')}</p>
       ) : (
-        <ul className="flex flex-col gap-2">
-          {issues.map((issue) => (
+        <ul className="flex flex-col gap-3">
+          {sorted.map((issue) => (
             <li key={issue.id}>
-              <Link
-                to={`/${placeId}/issues/${issue.id}`}
-                className="block rounded-xl border border-line bg-white p-3 shadow-card transition-colors hover:bg-brand-tint/40"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <span className="font-medium text-ink">{issue.title}</span>
-                  <span className="shrink-0 rounded-full bg-brand-tint px-2 py-0.5 text-xs font-medium text-brand">
-                    {t(`status.${issue.status}`)}
-                  </span>
-                </div>
-                <p className="mt-1 text-xs text-ink-muted">
-                  {t(`category.${issue.categoryId.replace('cat-', '')}`)} · {localityName(issue.localityId)} ·{' '}
-                  {t('common.upvotes', { count: issue.upvoteCount })}
-                </p>
-              </Link>
+              <IssueCard issue={issue} place={place} onChange={onIssueChange} />
             </li>
           ))}
         </ul>
